@@ -1,0 +1,38 @@
+1001
+
+#include<stdio.h>
+int main()
+{  int n,j,k=0;
+    scanf("%d",&n);
+  for( ;n!=1 ;k++ ){
+      if(n%2==0){j=1;}
+      if(n%2==1){j=2;}
+      switch(j){
+          case 1:n/=2;
+          break;
+          case 2:n=3*n+1;n/=2;
+          break;
+      }
+  }
+  printf("%d",k);   
+}
+
+1002
+
+#include<stdio.h>
+int main()
+{
+    char n[100];
+	int i,sum=0;
+    char *a[]={"ling","yi","er","san","si","wu","liu","qi","ba","jiu"};
+	scanf("%s",&n);
+    for(i=0 ;n[i]!='\0';i++ ){
+        sum+=n[i]-'0'; 
+    }
+   printf("%d",sum);
+	if(sum/100!=0){
+		printf("%s %s %s",a[sum/100],a[(sum-sum/100*100)/10],a[sum%10]);}
+	else if(sum/10!=0){
+	    printf("%s %s",a[sum/10],a[sum%10]);}
+	    else printf("%s",a[sum]);
+}
