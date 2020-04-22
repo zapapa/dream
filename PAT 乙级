@@ -303,3 +303,101 @@ int main()
    for(k=0;k<n;k++){A[k]=A[k+100];}
    for(l=0;l<n;l++){printf("%d%c",A[l],l==(n-1)?'\0':' ');}   
 }
+
+
+
+1009
+
+#include <stdio.h>
+int main(){
+    char a[80][80];
+    int n,i;
+    while(scanf("%s",a[n]) != EOF){
+        n++;
+    }
+    for(i=n-1;i>=0;i--){
+        printf("%s",a[i]);
+        if(i>0) printf(" ");
+    }
+    return 0;
+}
+
+
+
+1010
+
+#include<stdio.h>
+int main()
+{
+   int coef,expon,i=0;
+   while(scanf("%d %d",&coef,&expon)!=EOF){
+       if(expon){
+           if(i){
+               printf(" %d %d",coef*expon,expon-1);
+           }
+           else printf("%d %d",coef*expon,expon-1);i++;
+       }
+       else if(i) break;
+       else printf("0 0");
+   }
+   return 0;
+} 
+
+
+
+1011
+
+#include<stdio.h>
+int main()
+{
+    int n,t=1;
+    long long a,b,c;
+    scanf("%d",&n);
+    while(n--){
+        scanf("%lld %lld %lld",&a,&b,&c);
+        if((a+b-c)>0) printf("Case #%d: true\n",t++);
+        else printf("Case #%d: false\n",t++);
+    }
+    return 0;
+}
+
+
+
+1012
+
+#include<stdio.h>
+int main()
+{
+    int a[1001],n,i,a1=0,a2=-1,a3=0,t=0,a5=0,flag=0,y=0;
+    double a4=0.0;
+    scanf("%d",&n);
+    for(i=0;i<n;i++){
+        scanf("%d",&a[i]);
+    }
+    for(i=0;i<n;i++){
+        if(a[i]%5==0&&a[i]%2==0) a1+=a[i];
+        if(a[i]%5==1){
+            switch(flag){
+                case 0: a2+=a[i];flag=1;y++;break;
+                case 1: a2-=a[i];flag=0;y++;break;
+            }
+        }
+
+        if(a[i]%5==2) a3++;
+		if(a[i]%5==3) {a4+=a[i];t++;}
+        if(a[i]%5==4){
+            if(a[i]>a5) a5=a[i];
+        } 
+    }
+
+    if(a1!=0) printf("%d ",a1);
+    else printf("N ");
+    if(y!=0) printf("%d ",a2+1);
+    else printf("N ");
+    if(a3!=0) printf("%d ",a3);
+    else printf("N ");
+    if(a4!=0.0) printf("%.1f ",a4/t);
+    else printf("N ");
+    if(a5!=0) printf("%d",a5);
+    else printf("N");
+}
